@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Catalog from "../../features/catalog/Catalog";
 import { Product } from "../model/product";
 
+
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
 
@@ -12,10 +13,10 @@ function App() {
   }, [])
 
   return (
-    <div >
+    <>
       <h1>E-commerce</h1>
-      <Catalog products={products}/>
-    </div>
+      <Catalog products={products} />
+    </>
   );
 }
 

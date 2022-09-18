@@ -1,18 +1,15 @@
 import { Product } from "../../app/model/product"
+import ProductList from "../product/ProductList";
 
-interface CatalogProps {
+interface IProps {
   products: Product[];
 }
 
-export default function Catalog({products}: CatalogProps) {
+export default function Catalog({ products }: IProps) {
   return (
     <>
       <h1>Catalog</h1>
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>{product.name} - {product.price}</li>
-        ))}
-      </ul>
+      <ProductList products={products} />
     </>
   )
 }

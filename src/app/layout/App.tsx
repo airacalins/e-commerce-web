@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Catalog from "../../features/catalog/Catalog";
+import ProductPage from "../../features/product/ProductPage";
 import { Product } from "../model/product";
 
 
@@ -13,10 +13,7 @@ function App() {
   }, [])
 
   return (
-    <>
-      <h1>E-commerce</h1>
-      <Catalog products={products} />
-    </>
+    <ProductPage products={products} />
   );
 }
 

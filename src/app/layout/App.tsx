@@ -7,7 +7,6 @@ import ProductDetails from "../../features/product/components/ProductDetails";
 import ProductPage from "../../features/product/ProductPage";
 import { Product } from "../model/product";
 
-
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
 

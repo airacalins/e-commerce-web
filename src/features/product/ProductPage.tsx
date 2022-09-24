@@ -1,6 +1,5 @@
-import { Container } from "react-bootstrap";
 import { Product } from "../../app/model/product"
-import AppBar from "../../components/AppBar";
+import NavPageContainer from "../../components/NavPageContainer";
 import ProductList from "../product/components/ProductList";
 
 interface IProps {
@@ -9,11 +8,8 @@ interface IProps {
 
 export default function ProductPage({ products }: IProps) {
     return (
-        <>
-            <AppBar />
-            <Container>
-                <ProductList products={products} />
-            </Container>
-        </>
+        <NavPageContainer>
+            <ProductList products={products} />
+        </NavPageContainer>
     )
 }

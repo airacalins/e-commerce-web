@@ -1,10 +1,10 @@
-import AppBar from "../../components/AppBar";
+import { Typography } from "@mui/material";
+import NavPageContainer from "../../components/NavPageContainer";
 
 export default function HomePage() {
     return (
-        <>
-            <AppBar />
-            <h1>Home</h1>
-        </>
+        <NavPageContainer>
+            <Typography variant="h1">Home</Typography>
+        </NavPageContainer>
     )
 }

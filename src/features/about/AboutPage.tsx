@@ -1,5 +1,10 @@
+import { Typography } from "@mui/material";
+import NavPageContainer from "../../components/NavPageContainer";
+
 export default function AboutPage() {
     return (
-        <h1>About</h1>
+        <NavPageContainer>
+            <Typography variant="h1">About</Typography>
+        </NavPageContainer>
     )
 }

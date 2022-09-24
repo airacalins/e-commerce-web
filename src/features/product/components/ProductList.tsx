@@ -1,4 +1,4 @@
-import { Col, Row } from 'react-bootstrap';
+import { Grid, ListItem } from "@mui/material";
 import { Product } from "../../../app/model/product";
 import ProductCard from './ProductCard';
 
@@ -8,12 +8,12 @@ interface IProps {
 
 export default function ProductList({ products }: IProps) {
     return (
-        <Row className='xs-auto align-items-center'>
+        <Grid container spacing={4}>
             {products.map((product) => (
-                <Col>
+                <Grid item xs={3} key={product.id}>
                     <ProductCard product={product} />
-                </Col>
+                </Grid>
             ))}
-        </Row>
+        </Grid>
     )
 }

@@ -14,7 +14,7 @@ export default function ProductDetails() {
         
         agent.Product.details(+id)
             .then(response => setProduct(response))
-            .catch(error => console.log(error.response))
+            .catch(error => console.log(error))
             .finally(() => setIsLoading(false));
     }, [id])
 

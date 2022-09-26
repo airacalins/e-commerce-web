@@ -1,11 +1,18 @@
+import { useEffect, useState } from "react";
+import agent from "../../app/api/agent";
 import { Product } from "../../app/model/product"
 import ProductList from "../product/components/ProductList";
 
-interface IProps {
-    products: Product[];
-}
 
-export default function ProductPage({ products }: IProps) {
+
+export default function ProductPage() {
+
+    const [products, setProducts] = useState<Product[]>([]);
+
+    useEffect(() => {
+      agent.Product.list().then(products => setProducts(products));
+    }, [])
+    
     return (
         <ProductList products={products} />
     )

@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@emotion/react";
-import { Container, createTheme } from "@mui/material";
+import { Container, createTheme, CssBaseline } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "../../components/NavBar";
@@ -25,6 +25,9 @@ function App() {
   const theme = createTheme({
     palette: {
       mode: paletteType,
+      background: {
+        default: isDarkMode ? '#121212' : '#eaeaea'
+      }
     }
   })
 
@@ -37,21 +40,20 @@ function App() {
       theme={theme}
       children={
         <>
+          <CssBaseline />
           <NavBar isDarkMode={isDarkMode} handleThemeChange={handleThemeChange} />
           <Container>
             <Routes>
               <Route path='/' element={<HomePage />} />
               <Route path='/about' element={<AboutPage />} />
               <Route path='/contact' element={<ContactPage />} />
-              <Route path='/products' element={<ProductPage products={products} />} />
-              <Route path='/products/:id' element={<ProductDetails />} />
+              <Route path='/product' element={<ProductPage products={products} />} />
+              <Route path='/product/:id' element={<ProductDetails />} />
             </Routes>
           </Container>
         </>
       }
     />
-
-
   );
 }
 

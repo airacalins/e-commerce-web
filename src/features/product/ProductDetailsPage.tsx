@@ -1,17 +1,19 @@
 import { Divider, Grid, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import agent from "../../../app/api/agent";
-import { Product } from "../../../app/model/product";
+import agent from "../../app/api/agent";
+import NotFoundPage from "../../app/errors/NotFoundPage";
+import { Product } from "../../app/model/product";
+import Loading from "../../components/Loading";
 
-export default function ProductDetails() {
+export default function ProductDetailsPage() {
     const { id } = useParams<{ id: string }>();
     const [product, setProduct] = useState<Product | null>(null);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        if(!id) return;
-        
+        if (!id) return;
+
         agent.Product.details(+id)
             .then(response => setProduct(response))
             .catch(error => console.log(error))
@@ -19,10 +21,8 @@ export default function ProductDetails() {
     }, [id])
 
 
-    if (isLoading) return <h3>Loading...</h3>
-    if (!product) return <h3>Product not found</h3>
-
-    // const {id, name, description, price, pictureUrl, type, brand, quantityInStock} = product;
+    if (isLoading) return <Loading message="Loading details" />
+    if (!product) return <NotFoundPage />
 
     return (
         <Grid container spacing={6}>

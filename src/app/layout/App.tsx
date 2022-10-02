@@ -7,9 +7,10 @@ import NavBar from "../../components/NavBar";
 import AboutPage from "../../features/about/AboutPage";
 import ContactPage from "../../features/contact/ContactPage";
 import HomePage from "../../features/home/HomePage";
-import ProductDetails from "../../features/product/components/ProductDetails";
+import ProductDetails from "../../features/product/ProductDetailsPage";
 import ProductPage from "../../features/product/ProductPage";
 import "react-toastify/dist/ReactToastify.css"
+import NotFoundPage from "../errors/NotFoundPage";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -44,6 +45,7 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/product" element={<ProductPage />} />
               <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/*" element={<NotFoundPage />} />
             </Routes>
           </Container>
         </>
